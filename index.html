@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fsoicity.dat</title>
+    <style>
+        body {
+            background-color: #0d0000;
+            color: #ff0000;
+            font-family: "Courier New", Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-shadow: 0 0 5px #ff0000;
+        }
+
+        /* CRT Scanline Effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .mask {
+            width: 250px;
+            filter: drop-shadow(0 0 10px #ff0000);
+            margin-bottom: 20px;
+            animation: flicker 0.2s infinite;
+        }
+
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 5px;
+            margin: 10px 0;
+        }
+
+        .warning {
+            color: white;
+            background: #ff0000;
+            padding: 10px;
+            font-weight: bold;
+            animation: blink 0.8s infinite;
+        }
+
+        .terminal-text {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.9; }
+            5% { opacity: 0.8; }
+            10% { opacity: 0.9; }
+            15% { opacity: 1; }
+            100% { opacity: 0.9; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Logo_fsociety.svg/1024px-Logo_fsociety.svg.png" alt="fsociety" class="mask">
+        
+        <h1>FSOCIETY</h1>
+        <div class="warning">YOUR COMPUTER HAS BEEN INFECTED</div>
+        
+        <div class="terminal-text" id="terminal">
+            > Initializing exploit...<br>
+            > Encrypting local files...<br>
+            > We are anonymous. We are legion.<br>
+            > <strong>Leave the world behind.</strong>
+        </div>
+    </div>
+
+    <script>
+        // Simple typing effect for the terminal feel
+        const text = document.getElementById('terminal');
+        setTimeout(() => {
+            text.innerHTML += "<br>> Connection established. Hello, friend.";
+        }, 3000);
+    </script>
+
+</body>
+</html>
