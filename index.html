@@ -34,11 +34,11 @@
 
         .container {
             text-align: center;
-            z-index: 1;
+            z-index: 5; /* Zvýšeno, aby tlačítko bylo klikatelné */
         }
 
         .mask {
-            width: 200px; /* Trochu zmenšeno, aby se vešlo tlačítko */
+            width: 200px;
             filter: drop-shadow(0 0 10px #ff0000);
             margin-bottom: 20px;
             animation: flicker 0.2s infinite;
@@ -61,10 +61,10 @@
         .terminal-text {
             margin-top: 20px;
             font-size: 1.1rem;
-            min-height: 120px;
+            min-height: 100px;
         }
 
-        /* Hackerské tlačítko */
+        /* Tlačítko pro přechod na oblíbené místo */
         .hack-button {
             display: inline-block;
             margin-top: 30px;
@@ -75,15 +75,14 @@
             font-weight: bold;
             text-transform: uppercase;
             transition: all 0.3s;
-            position: relative;
-            z-index: 3; /* Aby bylo nad scanlines a šlo na něj kliknout */
+            cursor: pointer;
+            background: transparent;
         }
 
         .hack-button:hover {
             background: #ff0000;
-            color: black;
+            color: #000;
             box-shadow: 0 0 20px #ff0000;
-            cursor: pointer;
         }
 
         @keyframes blink {
@@ -107,22 +106,21 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Logo_fsociety.svg/1024px-Logo_fsociety.svg.png" alt="fsociety" class="mask">
         
         <h1>FSOCIETY</h1>
-        <div class="warning">YOUR COMPUTER HAS BEEN INFECTED</div>
+        <div class="warning">SYSTEM COMPROMISED</div>
         
         <div class="terminal-text" id="terminal">
             > Initializing exploit...<br>
-            > Encrypting local files...<br>
-            > We are anonymous. We are legion.<br>
-            > <strong>Leave the world behind.</strong>
+            > Accessing encrypted data...<br>
+            > Hello, Claudina.
         </div>
 
-        <a href="cpp.html" class="hack-button">Access Classified Files (PDF)</a>
+        <a href="cpp.html" class="hack-button">Access My Favorite Place</a>
     </div>
 
     <script>
         const text = document.getElementById('terminal');
         setTimeout(() => {
-            text.innerHTML += "<br>> Connection established. Hello, Claudina.";
+            text.innerHTML += "<br>> Connection secure. Files ready.";
         }, 2000);
     </script>
 
